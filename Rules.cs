@@ -4,9 +4,11 @@ namespace cse210_02
 {
     public class Rule
     {
+        //This class is for setting up ruls and provide output for Guessing class
         string correct = "";
         public void CorrectOrNot()
         {
+            //Check if the player guessed the correct range
             if (correct == "good")
             {
                 Program.playerscores += 100;
@@ -18,6 +20,7 @@ namespace cse210_02
         }
         public void high()
         {
+            //see if higher is correct
             if(Guessing.first_card_number < Guessing.second_card_number)
             {
                 correct = "good";
@@ -29,6 +32,7 @@ namespace cse210_02
         }
         public void low()
         {
+            //check if lower is correct
             if(Guessing.first_card_number > Guessing.second_card_number)
             {
                 correct = "good";
@@ -41,10 +45,11 @@ namespace cse210_02
         }
         public void gameover()
         {
-            if(Program.playerscores >= 0)
+            //run if player got lower than 0
+            if(Program.playerscores <= 0)
             {
-                Program.continue_game = "n";
-                Console.WriteLine("Sorry, you have lower 0 points, you lost......");
+                Console.WriteLine("Sorry, you have lower than 0 points, you lost......");
+                Console.WriteLine("Thanks for playing!");
             }
         }
         
